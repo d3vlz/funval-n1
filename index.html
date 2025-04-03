@@ -1,53 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos y practicas Nivel 1</title>
-    <meta name="author" content="Luis Carlos Zegarra Rodriguez">
-    <meta name="description" content="Practicas y proyectos del curso de Programación Front-end de Funval">
+    <title>Luis Zegarra - Funval N1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <picture>
-                        <img src="./resources/accelerate-svgrepo-com.svg" alt="icono de mi pagina" width="50" height="50">
-                    </picture>
-                </li>
-                <li>
-                    <a href="">Inicio</a>
-                </li>
-                <li>
-                    <a href="">Github</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <main>
-        <h1>¡Hola, soy Luis Zegarra Rodriguez!</h1>
-        <img src="./resources/index/foto.webp" alt="Foto de Luis Zegarra" width="200">
-        <br>
-        <p>Bienvenido a mi página personal, aquí encontrarás información sobre mí.</p>
-        <section>
-            <h2>Practicas y proyectos</h2>
-            <ul>
-                <li>
-                    <a href="./practica-1/index.html">
-                        <article>
-                            <h3>Practica 1</h3>
-                            <p>Practica simple</p>
-                        </article>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main>
-    <br>    
-    <footer>
+    <nav>
+        <div class="nav-logo">LZ</div>
+        <div class="nav-links">
+            <a href="#"><img src="./resources/index/home_icon.svg" alt="Inicio" class="nav-icon"> Inicio</a>
+            <a href="https://github.com" target="_blank"><img src="./resources/index/github-logo-icon.svg" alt="Github" class="nav-icon"> Github</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Luis Zegarra Rodriguez</h1>
+        <h2>Prácticas y proyectos</h2>
         
-    </footer>
+        <div class="projects-grid">
+            
+            <a href="../practica-1/" class="card-link" target="_blank">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Práctica 1</h3>
+                        <p>Página web simple</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="../recipe-page-main/" class="card-link" target="_blank">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Recipe page</h3>
+                        <p>Simple Omelette Recipe</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
