@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  border: 1px solid green;
+  padding: 10px;
+}
+
+header {
+  border: 1px solid blue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  border: 1px solid green;
+  padding: 5px;
+}
+nav {
+  display: flex;
+}
+.nav-item {
+  border: 1px solid red;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+main {
+  margin-top: 10px;
+}
+
+.section-top {
+  display: flex;
+  border: 1px solid yellow;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.left-panel {
+  width: 60%;
+  border: 1px solid green;
+  padding: 10px;
+}
+.right-panel {
+  width: 40%;
+  border: 1px solid green;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  border: 1px solid red;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.center-box {
+  margin: 0 auto;
+  width: 80%;
+}
+.big-box {
+  border: 1px solid red;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+.section-bottom {
+  display: flex;
+  border: 1px solid yellow;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.section-bottom .left-panel {
+  width: 60%;
+  border: 1px solid green;
+  padding: 10px;
+}
+.section-bottom .right-panel {
+  width: 40%;
+  border: 1px solid green;
+  padding: 10px;
+}
+
+.rect-box {
+  width: 60%;
+  margin-bottom: 10px;
+}
+.wide-box {
+  width: 90%;
+}
+
+footer {
+  border: 1px solid blue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-box {
+  width: 45%;
+  border: 1px solid green;
+  padding: 5px;
+}
