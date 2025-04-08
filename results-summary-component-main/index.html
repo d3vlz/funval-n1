@@ -10,38 +10,121 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+    /* .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); } */
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
 
-  Your Result
-  76
-  of 100
+<body class="font-[Hanken_Grotesk] flex flex-col justify-center items-center min-h-screen">
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
+<!-- container -->
 
-  Reaction
-  80 / 100
+  <main class="lg:flex lg:flex-row max-w-[400px] md:max-w-[800px]">
 
-  Memory
-  92 / 100
+    <!-- score container -->
 
-  Verbal
-  61 / 100
+    <section class="bg-gradient-to-b from-[#7957ff] to-[#2e2be9] text-white flex justify-center items-center flex-col text-center pt-6 pb-10 rounded-b-3xl lg:w-1/2">
+      <h1>
+        Your Result
+      </h1>
+      <div class="my-6 flex flex-col justify-center items-center bg-gradient-to-b from-[#4e21ca] to-[#2421ca00] w-[110px] h-[110px] rounded-full">
+        <span class="text-[35px] font-bold">76</span>
+        <span class="opacity-40">of 100</span>
+      </div>
+        <h3>
+          Great
+        </h3>
+        <p>
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
 
-  Visual
-  72 / 100
 
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+
+    </section>
+
+    <!-- summary container -->
+    <section class="px-8 py-5">
+      <div>
+        <h2 class="text-lg font-semibold text-[#303850]">Summary</h2>
+      </div>
+      
+      <p>
+        These are your results
+      </p>
+
+      <div class="">
+
+
+        <div class="flex justify-between w-full">
+          <div class="flex justify-between gap-2">
+            <img src="./assets/images/icon-reaction.svg" alt="icon-verbal">
+            <span class="text-[#232a8c] font-bold">
+            Reaction
+            </span>
+          </div>
+          <div>
+            <p><strong>80</strong> / 100</p>
+          </div>
+        </div>
+
+
+        <div class="flex justify-between w-full">
+          <div class="flex justify-between gap-2">
+            <img src="./assets/images/icon-memory.svg" alt="icon-verbal">
+            <span class="text-[#232a8c] font-bold">
+            Memory
+            </span>
+          </div>
+          <div>
+            <p><strong>92</strong> / 100</p>
+          </div>
+        </div>
+
+
+        <div class="flex justify-between w-full">
+          <div class="flex justify-between gap-2">
+            <img src="./assets/images/icon-verbal.svg" alt="icon-verbal">
+            <span class="text-[#232a8c] font-bold">
+            Verbal
+            </span>
+          </div>
+          <div>
+            <p><strong>61</strong> / 100</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between w-full">
+          <div class="flex justify-between gap-2">
+            <img src="./assets/images/icon-visual.svg" alt="icon-visual">
+            <span class="text-[#232a8c] font-bold">
+              Visual
+            </span>
+         </div>
+         <div>
+          <p><strong>72</strong> / 100</p>
+         </div>
+        </div>
+      </div>
+      
+      <div class="flex justify-center items-center mt-6">
+        <button class="bg-[#303b59] text-white py-3 px-6 rounded-full font-bold hover:bg-[#303b5990] transition duration-300">
+        Continue
+        </button>
+      </div>
+
+
+     
+    </section>
+
+  </main>
+ 
+  <!-- attribution -->
+  <footer class="fixed bottom-0 left-0 right-0 py-3 text-center text-sm text-gray-500">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-blue-500 hover:underline">Frontend Mentor</a>.
+    Coded by <a href="https://d3vlz.github.io/funval-n1/" class="text-blue-500 hover:underline">Luis Zegarra</a>.
+  </footer>
+
 </body>
 </html>
