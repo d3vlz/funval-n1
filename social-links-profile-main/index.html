@@ -13,20 +13,27 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
 
-  Jessica Randall
-  London, United Kingdom
-  "Front-end developer and avid reader."
+<body class="bg-black">
+  <main class="bg-[#1E1E1F] flex flex-col w-[330px] h-[550px] rounded-xl>
+    <section class="flex flex-col justify-center items-center p-6">
+      <img  class="w-20 rounded-full" src="./assets/images/avatar-jessica.jpeg" alt="Jessica">
+      <h1 class="text-white text-[26px] mt-5">Jessica Randall</h1>
+      <span class="text-[#cdf066]">London, United Kingdom</span>
+      <p class="text-white mt-6 text-[14px font-light]">"Front-end developer and avid reader."</p>
+    </section>
+    <section class="flex flex-col gap-4">
+      <a class="text-white bg[#333333] w-[85%] h-11 rounded-md text-center flex items-center justify-center text-[14px]" href="">GitHub</a>
+      <a class="text-white bg[#333333] w-[85%] h-11 rounded-md text-center flex items-center justify-center text-[14px]"href="">Frontend Mentor</a>
+      <a class="text-white bg[#333333] w-[85%] h-11 rounded-md text-center flex items-center justify-center text-[14px]"href="">LinkedIn</a>
+      <a class="text-white bg[#333333] w-[85%] h-11 rounded-md text-center flex items-center justify-center text-[14px]"href="">Twitter</a>
+      <a class="text-white bg[#333333] w-[85%] h-11 rounded-md text-center flex items-center justify-center text-[14px]"href="">Instagram</a>
+    </section>
+  </main>
 
-  GitHub
-  Frontend Mentor
-  LinkedIn
-  Twitter
-  Instagram
-  
-  <div class="attribution">
+  <div class="attribution" text-white mt-5>
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
