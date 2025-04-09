@@ -1,0 +1,25 @@
+{
+  "name": "funval-n1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3vlz/funval-n1.git"
+  },
+  "keywords": [],
+  "author": "Luis Carlos Zegarra Rodriguez",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/d3vlz/funval-n1/issues"
+  },
+  "homepage": "https://github.com/d3vlz/funval-n1#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.3",
+    "tailwindcss": "^4.1.3"
+  }
+}
