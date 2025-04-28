@@ -4,54 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luis Zegarra - Funval N1</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body>
-    <nav>
-        <div class="nav-logo">LZ</div>
-        <div class="nav-links">
-            <a href="#"><img src="./resources/index/home_icon.svg" alt="Inicio" class="nav-icon"> Inicio</a>
-            <a href="https://github.com" target="_blank"><img src="./resources/index/github-logo-icon.svg" alt="Github" class="nav-icon"> Github</a>
+<body class="font-sans bg-gray-100">
+    <nav class="bg-blue-700 text-white px-8 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold">LZ</div>
+        <div class="flex gap-8">
+            <a href="#" class="text-white hover:text-rose-200 flex items-center gap-2">
+                <img src="./resources/index/home_icon.svg" alt="Inicio" class="w-5 h-5"> Inicio
+            </a>
+            <a href="https://github.com" target="_blank" class="text-white hover:text-rose-200 flex items-center gap-2">
+                <img src="./resources/index/github-logo-icon.svg" alt="Github" class="w-5 h-5"> Github
+            </a>
         </div>
     </nav>
-    
-    <div class="container">
-        <h1>Luis Zegarra Rodriguez</h1>
-        <h2>Prácticas y proyectos</h2>
+
+    <div class="container mx-auto px-8 py-8">
+        <h1 class="text-4xl mb-2 text-blue-800">Luis Zegarra Rodriguez</h1>
+        <h2 class="text-2xl mb-8 text-blue-700 border-b-2 border-blue-700 pb-2">Prácticas y proyectos</h2>
         
-        <div class="projects-grid">
-            
-            <a href="./practica-1/index.html" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Práctica 1</h3>
-                        <p>Página web simple</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- PRACTICA 1 - PAGINA WEB SIMPLE -->
+            <a href="./practica-1/index.html" class="block" target="_blank">
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl mb-2 text-blue-800">Práctica 1</h3>
+                        <p class="text-rose-400">Página web simple</p>
                     </div>
                 </div>
             </a>
             
-            <a href="./recipe-page-main/index.html" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Recipe page</h3>
-                        <p>Simple Omelette Recipe</p>
+            <!-- PRACTICA: RECIPE PAGE -->
+            <a href="./recipe-page-main/index.html" class="block" target="_blank">
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl mb-2 text-blue-800">Recipe page</h3>
+                        <p class="text-rose-400">Simple Omelette Recipe</p>
                     </div>
                 </div>
             </a>
-
-            <a href="./practica-3/practica-3.html" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Práctica 3</h3>
-                        <p>Landing Page Simple</p>
+            
+            <!-- PRACTICA 3 - LANDING PAGE SIMPLE -->
+            <a href="./practica-3/practica-3.html" class="block" target="_blank">
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl mb-2 text-blue-800">Práctica 3</h3>
+                        <p class="text-rose-400">Landing Page Simple</p>
                     </div>
                 </div>
             </a>
-
-
-
-
-
+            
+            <!-- PRACTICA DOM: CARACTERISTICAS DE AUTO -->
+            <a href="./dom/index.html" class="block" target="_blank">
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl mb-2 text-blue-800">Práctica DOM</h3>
+                        <p class="text-rose-400">Importación de características de un auto</p>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </body>
