@@ -1,2 +1,237 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+
+/* Paleta de colores de Pokémon */
+@theme {
+  /* Colores principales */
+  --color-poke-red: #ff0000;
+  --color-poke-dark-red: #cc0000;
+  --color-poke-blue: #3b4cca;
+  --color-poke-yellow: #ffde00;
+  --color-poke-dark-yellow: #b3a125;
+  
+  /* Perspectiva 3D */
+  --perspective-default: 1000px;
+  --transform-style-preserve-3d: preserve-3d;
+  --backface-visibility-hidden: hidden;
+}
+
+/* Importamos nuestras utilidades personalizadas para efectos 3D */
+@layer utilities {
+  .perspective {
+    perspective: theme(--perspective-default);
+  }
+  
+  .preserve-3d {
+    transform-style: theme(--transform-style-preserve-3d);
+  }
+  
+  .backface-hidden {
+    backface-visibility: theme(--backface-visibility-hidden);
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* Asegura mejor rendimiento durante las transiciones */
+  .content {
+    transform: translateZ(0);
+    transition: transform 0.7s;
+  }
+}
+
+/* Estilos personalizados adicionales */
+@layer components {
+  /* Clases con la paleta Pokémon */
+  .bg-poke-red {
+    background-color: theme(--color-poke-red);
+  }
+  
+  .bg-poke-dark-red {
+    background-color: theme(--color-poke-dark-red);
+  }
+  
+  .bg-poke-blue {
+    background-color: theme(--color-poke-blue);
+  }
+  
+  .bg-poke-yellow {
+    background-color: theme(--color-poke-yellow);
+  }
+  
+  .bg-poke-dark-yellow {
+    background-color: theme(--color-poke-dark-yellow);
+  }
+  
+  .text-poke-red {
+    color: theme(--color-poke-red);
+  }
+  
+  .text-poke-dark-red {
+    color: theme(--color-poke-dark-red);
+  }
+  
+  .text-poke-blue {
+    color: theme(--color-poke-blue);
+  }
+  
+  .text-poke-yellow {
+    color: theme(--color-poke-yellow);
+  }
+  
+  .text-poke-dark-yellow {
+    color: theme(--color-poke-dark-yellow);
+  }
+  
+  .border-poke-red {
+    border-color: theme(--color-poke-red);
+  }
+  
+  .border-poke-blue {
+    border-color: theme(--color-poke-blue);
+  }
+  
+  .bg-gradient-poke {
+    background: linear-gradient(135deg, theme(--color-poke-red), theme(--color-poke-dark-red));
+  }
+  
+  /* Mensaje para voltear la tarjeta */
+  .flip-message {
+    @apply absolute bottom-4 w-full text-center text-xs text-red-700 py-1 px-2 rounded-full transition-opacity duration-300 opacity-0 group-hover:opacity-100;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Pokeball spinner */
+  .spinner {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 50% 50%, white 0, white 34%, theme(--color-poke-red) 36%, theme(--color-poke-red) 100%);
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    animation: spin 1s linear infinite;
+  }
+  
+  .spinner::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+  }
+  
+  .spinner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* Tipos de Pokémon con colores correspondientes */
+  .type-tag {
+    @apply inline-block px-2 py-1 rounded-full text-xs font-medium capitalize;
+  }
+  
+  .type-fire {
+    @apply bg-red-100 text-red-700;
+  }
+  
+  .type-water {
+    @apply bg-blue-100 text-blue-700;
+  }
+  
+  .type-grass {
+    @apply bg-green-100 text-green-700;
+  }
+  
+  .type-electric {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+  
+  .type-psychic {
+    @apply bg-pink-100 text-pink-700;
+  }
+  
+  .type-rock {
+    @apply bg-gray-300 text-gray-700;
+  }
+  
+  .type-ground {
+    @apply bg-amber-100 text-amber-700;
+  }
+  
+  .type-ice {
+    @apply bg-cyan-100 text-cyan-700;
+  }
+  
+  .type-bug {
+    @apply bg-lime-100 text-lime-700;
+  }
+  
+  .type-fighting {
+    @apply bg-orange-100 text-orange-700;
+  }
+  
+  .type-ghost {
+    @apply bg-purple-100 text-purple-700;
+  }
+  
+  .type-dragon {
+    @apply bg-indigo-100 text-indigo-700;
+  }
+  
+  .type-dark {
+    @apply bg-gray-600 text-white;
+  }
+  
+  .type-fairy {
+    @apply bg-pink-200 text-pink-700;
+  }
+  
+  .type-normal {
+    @apply bg-gray-100 text-gray-700;
+  }
+  
+  .type-poison {
+    @apply bg-purple-100 text-purple-700;
+  }
+  
+  .type-flying {
+    @apply bg-sky-100 text-sky-700;
+  }
+  
+  .type-steel {
+    @apply bg-slate-200 text-slate-700;
+  }
+  
+  /* Animación de spinner */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spinner {
+    @apply rounded-full h-12 w-12 border-4 border-red-500 border-t-transparent;
+    animation: spin 1s linear infinite;
+  }
+}

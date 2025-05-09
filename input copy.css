@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* 1. Definir las variables de tema para tus tokens 3D */
+@theme {
+  --perspective-default: 1000px;
+  --transform-style-preserve-3d: preserve-3d;
+  --backface-visibility-hidden: hidden;
+}
+
+/* 2. Cargar el plugin externo que genera tus utilidades 3D */
+@plugin "./tailwind-3d-plugin.js";

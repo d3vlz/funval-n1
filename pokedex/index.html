@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="./css/output.css"/>
+  <link rel="icon" href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"/>
+  <style>
+    /* Estilos críticos mínimos para el efecto 3D */
+    .perspective { perspective: 1000px; }
+    .preserve-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .content { transition: transform 0.7s; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-gray-50 to-poke-yellow p-4 md:p-6">
+  <header class="max-w-4xl mx-auto mb-8">
+    <div class="flex items-center justify-center mb-6">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="Pokéball" class="w-10 h-10 mr-3"/>
+      <h1 class="text-4xl font-extrabold text-poke-red">Pokédex</h1>
+    </div>
+    
+    <div class="bg-white p-4 rounded-xl shadow-md">
+      <div class="flex flex-wrap justify-center gap-3 mb-3">
+        <div class="w-full sm:w-2/3 relative">
+          <input id="pokemonInput" type="text" placeholder="Buscar Pokémon..."
+                 class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-poke-red focus:border-transparent"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <button id="searchButton"
+                class="px-5 py-3 bg-poke-red hover:bg-poke-dark-red text-white font-medium rounded-lg transition shadow-sm hover:shadow">Buscar</button>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <select id="typeSelect"
+                class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-poke-red focus:border-transparent bg-white">
+          <option value="">Todos los tipos</option>
+          <option value="fire">Fuego</option>
+          <option value="water">Agua</option>
+          <option value="grass">Planta</option>
+          <option value="electric">Eléctrico</option>
+          <option value="psychic">Psíquico</option>
+          <option value="rock">Roca</option>
+          <option value="ground">Tierra</option>
+          <option value="ice">Hielo</option>
+          <option value="bug">Bicho</option>
+          <option value="fighting">Lucha</option>
+          <option value="ghost">Fantasma</option>
+          <option value="dragon">Dragón</option>
+          <option value="dark">Siniestro</option>
+          <option value="fairy">Hada</option>
+          <option value="normal">Normal</option>
+          <option value="poison">Veneno</option>
+          <option value="flying">Volador</option>
+          <option value="steel">Acero</option>
+        </select>
+        <button id="applyFilters"
+                class="px-4 py-3 bg-poke-blue hover:opacity-90 text-white font-medium rounded-lg transition shadow-sm hover:shadow">Filtrar</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-4">
+      <p id="pokemonCount" class="text-gray-600 font-medium"></p>
+      <button id="loadMore" class="px-4 py-2 bg-poke-dark-yellow hover:opacity-90 text-white font-medium rounded-lg transition shadow-sm hover:shadow hidden">
+        Cargar más
+      </button>
+    </div>
+    <div id="pokemonContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    <div id="loadingIndicator" class="flex justify-center py-8 hidden"></div>
+  </main>
+
+  <footer class="mt-12 text-center text-gray-900 text-sm">
+    <p>API de <a href="https://pokeapi.co" class="text-poke-blue hover:underline" target="_blank">PokéAPI</a> - Proyecto Pokédex | Funval N1</p>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

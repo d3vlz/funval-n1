@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="./css/output.css"/>
+</head>
+<body class="min-h-screen bg-gray-100 p-6">
+  <header class="max-w-4xl mx-auto mb-8">
+    <h1 class="text-4xl font-extrabold text-center text-red-600 mb-6">Pokédex</h1>
+    <div class="flex flex-wrap justify-center gap-3">
+      <input id="pokemonInput" type="text" placeholder="Buscar Pokémon..."
+             class="w-full sm:w-2/3 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-red-400"/>
+      <button id="searchButton"
+              class="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded transition">Buscar</button>
+      <select id="typeSelect"
+              class="p-2 rounded border focus:outline-none focus:ring-2 focus:ring-red-400">
+        <option value="">Todos</option>
+        <option value="fire">Fuego</option>
+        <option value="water">Agua</option>
+        <option value="grass">Planta</option>
+        <option value="electric">Eléctrico</option>
+        <option value="psychic">Psíquico</option>
+        <option value="rock">Roca</option>
+        <option value="ground">Tierra</option>
+        <option value="ice">Hielo</option>
+        <option value="bug">Bicho</option>
+        <option value="fighting">Lucha</option>
+        <option value="ghost">Fantasma</option>
+        <option value="dragon">Dragón</option>
+        <option value="dark">Siniestro</option>
+        <option value="fairy">Hada</option>
+      </select>
+      <input id="minHeight" type="number" placeholder="Altura ≥ m"
+             class="w-24 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-red-400"/>
+      <input id="minWeight" type="number" placeholder="Peso ≥ kg"
+             class="w-24 p-2 rounded border focus:outline-none focus:ring-2 focus:ring-red-400"/>
+      <button id="applyFilters"
+              class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition">Filtrar</button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto">
+    <div id="pokemonContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

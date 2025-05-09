@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./output.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="h-screen">
+      <!-- header para titulo y filtros -->
+      <header class="flex items-center flex-col bg-[#ffcc33] h-[15%]">
+        <img
+          src="./pngimg.com - pokemon_logo_PNG3.png"
+          alt=""
+          class="h-20 w-3xs"
+        />
+        <div
+          id="container-butons-filters"
+          class="gap-48 flex flex-wrap justify-center mt-3"
+        >
+          <button
+            id="fuego"
+            class="bg-red-500 text-white px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            fuego
+            <img src="./icons8-elemento-fuego-32.png" alt="" />
+          </button>
+          <button
+            id="agua"
+            class="bg-blue-500 text-white px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            agua
+            <img src="./icons8-agua-48.png" alt="" class="h-7" />
+          </button>
+          <button
+            id="planta"
+            class="bg-green-500 text-white px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            planta
+            <img src="./icons8-planta-48.png" alt="" class="h-7" />
+          </button>
+          <button
+            id="electrico"
+            class="bg-black text-white px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            electrico
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32 2L12 36H28L20 62L52 28H36L44 2H32Z"
+                fill="#FFD700"
+                stroke="#FFA500"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            id="fantasma"
+            class="bg-gray-300 px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            fantasma
+            <img src="./icons8-fantasma-50.png" alt="" class="h-7" />
+          </button>
+          <button
+            id="veneno"
+            class="bg-purple-600 text-white px-4 py-1 rounded flex items-center justify-center gap-0.5"
+          >
+            veneno
+            <img src="./icons8-veneno-64.png" alt="" class="h-7" />
+          </button>
+        </div>
+      </header>
+      <!-- contenedor de las tarjetas de los pokemons -->
+      <section
+        id="card-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 bg-[#fff27c] p-5"
+      ></section>
+      <!-- contenedor de los botones de siguiente y anterior -->
+      <div
+        id="butons-next"
+        class="justify-end flex pr-5 bg-[#ffcc33] h-[10%] p-3"
+      >
+        <button class="bg-blue-500 text-white p-2 rounded-b-sm h-12">
+          next
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
