@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Frontend Mentor challenge for building a tic tac toe game using HTML, Tailwind CSS, and JavaScript" />
+  <meta name="keywords" content="frontend mentor, tic tac toe challenge, frontend mentor tic tac toe solution" />
+  <meta name="author" content="Luis Zegara" />
+  <!-- <link rel="stylesheet" href="./assets/styles/output.css"> -->
+  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#1a2a33',
+            'semi-dark-navy': '#1f3641',
+            'silver': '#a8bfc9',
+            'silver-hover': '#dbe8ed',
+            'light-blue': '#31c3bd',
+            'light-blue-hover': '#65e9e4',
+            'light-yellow': '#f2b137',
+            'light-yellow-hover': '#ffc860',
+          },
+          fontFamily: {
+            'outfit': ['Outfit', 'sans-serif'],
+          },
+          boxShadow: {
+            'inner-sm': 'inset 0 -4px 0 #111c22',
+            'inner-md': 'inset 0 -8px 0 #111c22',
+            'inner-silver': 'inset 0 -4px 0 #6991a2',
+            'inner-silver-lg': 'inset 0 -8px 0 #6991a2',
+            'inner-blue': 'inset 0 -4px 0 #1d716e',
+            'inner-blue-lg': 'inset 0 -8px 0 #1d716e',
+            'inner-yellow': 'inset 0 -4px 0 #b77c0c',
+            'inner-yellow-lg': 'inset 0 -8px 0 #b77c0c',
+          },
+        },
+      },
+    };
+  </script>
+  
+  <title>Tic Tac Toe</title>
+</head>
+<body class="bg-dark-navy text-silver font-outfit min-h-screen flex items-center justify-center overflow-x-hidden relative text-sm md:text-base">
+  <div id="backdrop" class="backdrop hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+  
+  <!-- WIN / LOSS / TIE / RESTART -->
+  <section id="modal" class="modal hidden fixed top-1/2 -translate-y-1/2 left-0 w-full py-16 bg-semi-dark-navy text-center"></section>
+  
+  <!-- GAME START -->
+  <section id="game-start" class="game-start max-w-[90%] text-center block animate-[fadeIn_1s_ease-in-out]">
+    <div class="logo mb-6">
+      <a class="logo__link" href="index.html" aria-label="logo">
+        <svg class="w-[72px] h-8" viewBox="0 0 72 32" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd">
+            <path d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z" fill="#31C3BD"/>
+            <path d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z" fill="#F2B137" fill-rule="nonzero"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+    
+    <div class="bg-semi-dark-navy p-6 my-10 rounded-2xl shadow-inner-md">
+      <header>
+        <h4 class="text-base font-bold uppercase">Pick player 1's mark</h4>
+      </header>
+      <div id="game-start-marks" class="bg-dark-navy rounded-xl my-6 p-2 flex h-[70px] items-center justify-between">
+        <div id="x" class="game-start__x-mark relative w-full h-full rounded-xl flex items-center justify-center basis-1/2 transition-all duration-300 hover:bg-[#1d303a] hover:cursor-pointer">
+          <svg class="w-8 h-8 fill-silver" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
+          </svg>
+        </div>
+        <div id="o" class="game-start__o-mark selected relative w-full h-full rounded-xl flex items-center justify-center basis-1/2 transition-all duration-300 hover:bg-[#1d303a] hover:cursor-pointer bg-silver">
+          <svg class="w-8 h-8 fill-dark-navy" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
+          </svg>
+        </div>
+      </div>
+      <footer class="uppercase opacity-50">Remember: x goes first</footer>
+    </div>
+    
+    <div class="game-start__buttons">
+      <button id="vs-cpu" class="block w-full text-xl font-bold text-dark-navy uppercase text-center py-6 px-12 border-0 rounded-2xl transition-all duration-300 mb-4 bg-light-yellow shadow-inner-yellow-lg hover:cursor-pointer hover:bg-light-yellow-hover">
+        New game (vs cpu)
+      </button>
+      <button id="vs-player" class="block w-full text-xl font-bold text-dark-navy uppercase text-center py-6 px-12 border-0 rounded-2xl transition-all duration-300 bg-light-blue shadow-inner-blue-lg hover:cursor-pointer hover:bg-light-blue-hover">
+        New game (vs player)
+      </button>
+    </div>
+  </section>
+  
+  <!-- GAMEPLAY -->
+  <section id="gameplay" class="grid my-12 grid-cols-3 gap-6 items-center text-center animate-[fadeIn_0.4s_ease-in-out] hidden max-w-[90%]">
+    <div class="gameplay__xo">
+      <svg class="w-[72px] h-8" viewBox="0 0 72 32" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd">
+          <path d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z" fill="#31C3BD"/>
+          <path d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z" fill="#F2B137" fill-rule="nonzero"/>
+        </g>
+      </svg>
+    </div>
+    <div id="gameplay-turn" class="w-full bg-semi-dark-navy py-4 px-3 md:px-6 rounded-xl shadow-inner-sm flex items-center font-bold uppercase text-lg"></div>
+    <div id="restart-btn" class="w-1/2 bg-silver p-4 rounded-xl shadow-inner-silver transition-all duration-300 justify-self-end hover:cursor-pointer hover:bg-silver-hover">
+      <svg class="w-5 h-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z" fill="#1F3641"/>
+      </svg>
+    </div>
+    <div id="gameplay-board" class="col-span-3 grid grid-cols-3 grid-rows-3 gap-6">
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+      <div class="gameplay__card p-10 md:p-14 bg-semi-dark-navy shadow-inner-md rounded-2xl hover:cursor-pointer"></div>
+    </div>
+    <div id="x-win" class="text-dark-navy uppercase py-3 md:py-4 px-4 md:px-10 rounded-2xl bg-light-blue"></div>
+    <div id="tie" class="text-dark-navy uppercase py-3 md:py-4 px-4 md:px-10 rounded-2xl bg-silver"></div>
+    <div id="o-win" class="text-dark-navy uppercase py-3 md:py-4 px-4 md:px-10 rounded-2xl bg-light-yellow"></div>
+    <div id="opponent-message" class="col-span-3 hidden">
+      <p class="inline">Your opponent is thinking</p>
+      <img src="./assets/images/loading.gif" alt="Your opponent message" />
+    </div>
+  </section>
+  
+  <script src="./assets/scripts/app.js"></script>
+
+</body>
+</html>
